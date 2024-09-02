@@ -1,0 +1,114 @@
+git pull origin main
+
+git pull origin main --allow-unrelated-histories
+
+git add . // Staging di tutti i file modificati e file nuovi
+git add filename1 filename2 // Staging di uno o più file
+git add -A: Aggiunge tutti i cambiamenti, inclusi i file eliminati, all'index.
+git add --all
+
+git commit -m "primo commit"
+
+git remote add origin https://github.com/Enry85Moly/test_c.git
+git remote add <remote_name> <remote_repo_url>
+
+git push -u origin main
+
+git push -f origin main
+
+git push -u origin HEAD:tuo_branch
+
+git fetch origin main
+
+main -> FETCH_HEAD
+
+git merge FETCH_HEAD
+
+git checkout <branch>
+
+git checkout -b <branch> // nuova linea di sviluppo 
+
+git init
+
+git clone ssh://git@bitbucket.akka.eu:7999/elfwrthsa/015_documentation.git
+                git@HOSTNAME:USERNAME/REPONAME.git
+
+git branch // o git status: Verifica le branch locali
+git branch develop // Creare una branch locale develop
+
+Puoi verificare la branch attualmente attiva con git status o git branch.
+
+eseguire il merge di feature_branch in develop:
+git checkout develop
+git merge --no-ff feature_branch
+
+Comandi:
+Creare: git branch test1
+Rinominare: git branch –r test2
+Cancellare: git branch –d test2
+
+È necessario prima venire a conoscenza della situazione aggiornata della repo centrale tramite git fetch origin, 
+e riallinearci alle modifiche della repo centrale
+
+git commit --amend --no-edit 
+
+Anziché effettuare un nuovo commit, utilizziamo l’opzione --amend per modificare il commit corrente senza aggiungerne uno nuovo.
+L’opzione --no-edit permette di modificare il contenuto del commit senza reinserire il messaggio.
+
+Il comando git reset permette di riportare una branch indietro ad un commit desiderato. Esistono tre opzioni di reset:
+--soft: è l’opposto di git commit: annulla l’ultimo commit riportando lo stato a «staged»
+--mixed: come soft, ma in più effettua l’un-stage delle modifiche
+--hard: riporta la branch al commit desiderato, cancellando le modifiche dal filesystem.
+In questo caso, vogliamo tornare al commit a63258af. Scriveremo quindi: git reset --mixed a63258af
+
+git revert: aggiunge un commit che annulla il precedente
+
+git stash (è di fatto una push)
+git stash pop
+in alternativa a pop:
+git stash apply
+
+
+git status
+
+Capita spesso che, man mano che un progetto si sviluppa, si voglia rendere la sua struttura più gerarchica 
+e/o rinominare alcuni files per meglio rappresentare il loro contenuto. Ma se spostiamo ad esempio utils.h 
+in una sottocartella Utils e lo rinominiamo in simple_math.h. Anziché individuare lo spostamento, 
+git vedrà una rimozione e un’aggiunta di due file.
+
+git mv "./utils.h" "./Utils/simple_math.h"
+
+Git branch -m main: Rinomina poi la branch master in main 
+
+git log --graph --first-parent
+
+git config --global user.name <name>
+git config --global user.email <email>
+
+
+
+# Create a feature branch based off of main 
+git checkout -b feature_branch main
+# Edit files 
+git commit -a -m "Adds new feature" 
+
+Git rebase in standard mode will automatically take the commits in your current working branch and apply them to the head of the passed branch.
+
+
+git remote -v
+
+ho ottenuto questo feedback:
+
+origin  ssh://git@bitbucket.akka.eu:7999/elfsitbaa/90_firmware.git (fetch)
+origin  ssh://git@bitbucket.akka.eu:7999/elfsitbaa/90_firmware.git (push)
+
+# Imposta l'URL per il fetch
+git remote set-url --add --fetch origin <fetch_url>
+
+# Imposta l'URL per il push
+git remote set-url --add --push origin <push_url>
+
+
+
+git rebase <base>
+This automatically rebases the current branch onto ＜base＞, which can be any kind of commit reference (for example an ID, a branch name, a tag, or a relative reference to HEAD).
