@@ -2,6 +2,6 @@
 
 void main (void)
 {
-	printf("ciao pippo!\n");
+	printf("provaaaaaaaaa\n");
 	while (1);
 }
