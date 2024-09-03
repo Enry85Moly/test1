@@ -11,7 +11,5 @@ rem *** gcc -O0  -ggdb -mwindows   c:\commons\c\dev-cpp\lib\mswindows_directx_mi
 gcc -O0  -ggdb -lole32 -lwinmm -lws2_32 -liphlpapi  -lddraw -ldxguid -ldxerr8   main.o  -o main
 if errorlevel 1 goto end
 @echo Errors: 0 errors
-@goto fine
-:end
-@echo Errors: 1 errors
-:fine
+@echo Opening main.exe in a new window...
+start cmd /c main.exe > output.txt 2>&1
